@@ -1,0 +1,62 @@
+{
+  "name": "deoism-mern-mongo-redux-social",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.5.0",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.1.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.1",
+    "nodemon": "^2.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "request": "^2.88.0",
+    "thunk": "0.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "prestart": "nodemon --dbpath data --config mongo.conf &",
+    "server": "nodemon server",
+    "start": "node server.js --hot",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "eject": "react-scripts eject",
+    "proxy": "http://localhost:5000"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.11"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project deoism->mern-mongo-redux-social  bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
+  "author": "deoism",
+  "license": "ISC",
+  "proxy": "http://localhost:5000"
+}
