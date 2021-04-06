@@ -1,0 +1,6 @@
+{
+    "mongoURI":"mongodb+srv://Deo:Deo@deoist.j6ypg.mongodb.net/deoist?retryWrites=true&w=majority",
+    "jwtSecret":"forthegloryoftheempire",
+    "githubClientId": "323b702777c5e456556d",
+    "githubSecret": "34b5ad7dc8cf636b5a78618360260d41fcc81b8b"
+}
