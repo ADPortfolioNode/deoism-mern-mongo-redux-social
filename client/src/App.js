@@ -24,7 +24,6 @@ const App = () => {
 
 useEffect(()=> {
      store.dispatch(loadUser());
-     
          // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
  
@@ -36,14 +35,14 @@ useEffect(()=> {
         <Route exact path='/' component={ Landing } />
           <section className="container">
             <Alert />
-          <Switch >
+          <Switch>
             <Route exact path="/register" component={ Register } />
             <Route exact path="/login" component={ Login } /> 
             <PrivateRoute exact path="/dashboard" component={ Dashboard } />
             <PrivateRoute exact path="/create-profile" component={ CreateProfile } />
             <PrivateRoute exact path="/edit-profile" component={ EditProfile } />
             
-          </Switch >
+          </Switch>
       </section> 
     </Fragment>
   </Router>

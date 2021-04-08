@@ -40,7 +40,7 @@ const {
 
 const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
   
-const onSubmit = e => {
+const onSubmit = (e) => {
     e.preventDefault();
     createProfile(formData,history);
 }
@@ -57,7 +57,7 @@ return(
           profile stand out
         </p>
         <small>* = required field</small>
-        <form className="form">
+        <form className="form" onSubmit={(e) =>onSubmit(e)}>
           <div className="form-group">
             <select name="status" value={status} onChange={e=> onChange(e)}>
               <option value="0">* Select Professional Status</option>
@@ -158,4 +158,6 @@ CreateProfile.propTypes = {
 createProfile: PropTypes.func.isRequired
 
 } 
+
+ 
 export default connect(null, {createProfile})(withRouter(CreateProfile));

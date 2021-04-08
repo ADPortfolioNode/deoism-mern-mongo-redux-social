@@ -13,7 +13,7 @@ if (localStorage.token) {
 const Dashboard = ({ getCurrentProfile, auth:{user}, profile:{profile, loading}}) => {
   
     useEffect(() => {
-         getCurrentProfile(); 
+         getCurrentProfile()    
          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); 
 return(  <Fragment> <h1 className="LARGE text-primary"> Dashboard</h1>
