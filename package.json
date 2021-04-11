@@ -15,6 +15,7 @@
     "mongoose": "^5.5.1",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "request": "^2.88.0",
@@ -58,5 +59,18 @@
   "main": "server.js",
   "author": "deoism",
   "license": "ISC",
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ADPortfolioNode/deoism-mern-mongo-redux-social.git"
+  },
+  "keywords": [
+    "react",
+    "mern",
+    "deoism"
+  ],
+  "bugs": {
+    "url": "https://github.com/ADPortfolioNode/deoism-mern-mongo-redux-social/issues"
+  },
+  "homepage": "https://github.com/ADPortfolioNode/deoism-mern-mongo-redux-social#readme"
 }

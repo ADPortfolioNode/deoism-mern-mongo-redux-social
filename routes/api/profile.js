@@ -72,7 +72,7 @@ router.post('/',
         if (location) profileFields.location = location;
         if (bio) profileFields.bio = bio;
         if (status) profileFields.status = status;
-        if (githubusername) profileFields.company = githubusername;
+        if (githubusername) profileFields.githubusername = githubusername; 
         if (skills) {
             profileFields.skills = skills.split(',').map(skill => skill.trim());
         }
@@ -225,9 +225,8 @@ router.put('/experience',
             await profile.save();
 
             res.json(profile);
-        } catch (err) {
-            console.error(err.message);
-            res.status(500).send('Server Error');
+        } catch (err) { 
+            res.status(500).send('Server Error' );
         }
     });
 

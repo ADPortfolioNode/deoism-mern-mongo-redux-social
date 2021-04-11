@@ -1,61 +1,50 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { CLEAR_PROFILE, GET_PROFILE, PROFILE_ERROR,EDIT_PROFILE,UPDATE_PROFILE} from '../actions/types';
+import {
+  CLEAR_PROFILE,
+  GET_PROFILE,
+  PROFILE_ERROR,
+  UPDATE_PROFILE,
+} from "../actions/types";
 
 const initialState = {
-    profile:null,
-    profiles:[],
-    repos: [],
-    loading: true,
-    error: {}
-}
+  profile: null,
+  profiles: [],
+  repos: [],
+  loading: true,
+  error: {},
+};
 
-export default function(state = initialState, action) {
-    const {type, payload } = action;
+export default function (state = initialState, action) {
+  const { type, payload } = action;
+console.log("reducer payload: " ,type ,payload);
+  switch (type) {
+    case GET_PROFILE:
+    case UPDATE_PROFILE:
+      return {
+        ...state,
+        profile: payload,
+        loading: false,
+      }; 
 
-    switch (type) {
-        case GET_PROFILE: 
-          
-            return {
-                ...state,
-                profile: payload,
-                loading: false
-            };
-            case EDIT_PROFILE:
-          
-                return {
-                    ...state,
-                    profile: payload,
-                    loading: false,
-                    edit:true
-                };
-            case UPDATE_PROFILE:
-          
-            return {
-                ...state,
-                profile: payload,
-                loading: false,
-                edit:false
-            };
+    case PROFILE_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: false,
+        profile: null,
+        repos: [],
+      }; 
 
-    case PROFILE_ERROR: console.error();
-        return{
-            ...state,
-            error:payload,
-            loading:false,
-            profile: null,
-            repos :[]
-        };
-     case   CLEAR_PROFILE:
-        console.error();
-        return{
-            ...state,
-            error:payload,
-            loading:false,
-            profile: null,
-            repos :[]
-        };
+    case CLEAR_PROFILE:
+      return {
+        ...state,
+        error: payload,
+        loading: false,
+        profile: null,
+        repos: [], 
+      };
 
     default:
-        return state;
-    }
+      return state;
+  }
 }
