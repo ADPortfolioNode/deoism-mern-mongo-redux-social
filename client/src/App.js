@@ -9,13 +9,14 @@ import AddExperience from './components/profile-forms/AddExperience';
 import AddEducation from './components/profile-forms/AddEducation';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
-import setAuthToken from './utils/setAuthToken';
-import Dashboard from './components/dashboard/Dashboard'; 
+import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import store from './store';
-import {Provider} from 'react-redux'; 
-import {loadUser} from './actions/auth'; 
-import './App.css'; 
+
+import setAuthToken from './utils/setAuthToken';
+import {Provider} from 'react-redux';
+import {loadUser} from './actions/auth';
+import './App.css';
 
 
 if (localStorage.token) {

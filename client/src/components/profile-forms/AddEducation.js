@@ -22,22 +22,35 @@ const AddEducation = ({addEducation, history}) => {
 
   const onChange = (e) =>setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    console.log("formData:",formData);
+   
+  console.log("add education formData:",formData); console.log("formData:",formData);
 
   return (
     <Fragment >
-      <h1 className="large text-primary">Add An Education</h1>
+      <h1 className="large text-primary">Add Your Education</h1>
       <p className="lead">
         <i className="fas fa-code-branch"></i> 
-        Add education that you have had in the past.
+        Add any School or Bootcamp  that you have attended in the past.
       </p>
       <small>* = required field</small>
-      <form className="form" onSubmit={(e)=>{
+      <form 
+      className="form" 
+      onSubmit={(e)=>{
         e.preventDefault();
         console.log("sending: addEducation ", formData);
         addEducation(formData, history);
       }} 
       >
+               <div className="form-group">
+          <input
+            type="text"
+            placeholder="* School or Bootcamp history"
+            name="school"
+            required
+            value={school}
+            onChange={(e)=> onChange(e)}
+          />
+        </div> 
         <div className="form-group">
           <input
             type="text"
@@ -48,16 +61,7 @@ const AddEducation = ({addEducation, history}) => {
             onChange={(e)=> onChange(e)}
           />
         </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="* School"
-            name="school"
-            required
-            value={school}
-            onChange={(e)=> onChange(e)}
-          />
-        </div>
+
         <div className="form-group">
           <input
             type="text"

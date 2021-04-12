@@ -3,7 +3,7 @@ import {
   CLEAR_PROFILE,
   GET_PROFILE,
   PROFILE_ERROR,
-  UPDATE_PROFILE,
+  UPDATE_PROFILE
 } from "../actions/types";
 
 const initialState = {
@@ -11,19 +11,22 @@ const initialState = {
   profiles: [],
   repos: [],
   loading: true,
-  error: {},
+  error: {}
 };
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
-console.log("reducer payload: " ,type ,payload);
+
+
+console.log("reducers  payload: " ,type ,payload);
+
   switch (type) {
     case GET_PROFILE:
     case UPDATE_PROFILE:
       return {
         ...state,
         profile: payload,
-        loading: false,
+        loading: false
       }; 
 
     case PROFILE_ERROR:
@@ -32,7 +35,7 @@ console.log("reducer payload: " ,type ,payload);
         error: payload,
         loading: false,
         profile: null,
-        repos: [],
+        repos: []
       }; 
 
     case CLEAR_PROFILE:
@@ -41,7 +44,7 @@ console.log("reducer payload: " ,type ,payload);
         error: payload,
         loading: false,
         profile: null,
-        repos: [], 
+        repos: []
       };
 
     default:

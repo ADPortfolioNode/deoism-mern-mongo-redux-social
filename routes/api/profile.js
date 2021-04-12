@@ -199,8 +199,8 @@ router.put('/experience',
 
         }
         const {
-            title,
             company,
+            title,
             location,
             from,
             to,
@@ -209,8 +209,8 @@ router.put('/experience',
         } = req.body;
 
         const newExp = {
-            title,
             company,
+            title,
             location,
             from,
             to,
@@ -218,6 +218,7 @@ router.put('/experience',
             description
         }
         try {
+         
             const profile = await Profile.findOne({ user: req.user.id });
 
             profile.experience.unshift(newExp);
