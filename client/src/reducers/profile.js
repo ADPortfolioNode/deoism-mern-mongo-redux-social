@@ -1,7 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import {
   CLEAR_PROFILE,
+  GET_PROFILES,
   GET_PROFILE,
+  GET_REPOS,
   PROFILE_ERROR,
   UPDATE_PROFILE
 } from "../actions/types";
@@ -27,8 +29,13 @@ console.log("reducers  payload: " ,type ,payload);
         ...state,
         profile: payload,
         loading: false
-      }; 
-
+      }
+    case  GET_PROFILES:
+      return {
+        ...state,
+        profiles: payload,
+        loading:false
+      }
     case PROFILE_ERROR:
       return {
         ...state,
@@ -46,7 +53,12 @@ console.log("reducers  payload: " ,type ,payload);
         profile: null,
         repos: []
       };
-
+case GET_REPOS:
+  return{
+    ...state,
+    repos: payload,
+    loading: false
+  }
     default:
       return state;
   }
