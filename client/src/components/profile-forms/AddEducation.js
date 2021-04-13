@@ -1,11 +1,10 @@
-import React, { Fragment, useState } from 'react';
-import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addEducation } from '../../actions/profile';
+import React, { Fragment, useState } from "react";
+import Proptypes from "prop-types";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { addEducation } from "../../actions/profile";
 
-
-const AddEducation = ({addEducation, history}) => {
+const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
     school: '',
     degree: '',
@@ -18,109 +17,105 @@ const AddEducation = ({addEducation, history}) => {
 
   const [toDateDisabled, toggleDisabled] = useState(false);
 
-  const { school, degree, fieldofstudy, from, to, current, description } = formData;
+  const {school,degree,fieldofstudy,from,to,current,description
+  } = formData;
 
-  const onChange = (e) =>setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-   
-  console.log("add education formData:",formData); console.log("formData:",formData);
+  console.log("add education formData:", formData);
 
   return (
-    <Fragment >
-      <h1 className="large text-primary">Add Your Education</h1>
-      <p className="lead">
-        <i className="fas fa-code-branch"></i> 
-        Add any School or Bootcamp  that you have attended in the past.
+    <Fragment>
+      <h1 className='large text-primary'>Add Your Education</h1>
+      <p className='lead'>
+        <i className='fas fa-code-branch'></i>
+        Add any School or Bootcamp that you have attended in the past.
       </p>
       <small>* = required field</small>
-      <form 
-      className="form" 
-      onSubmit={(e)=>{
-        e.preventDefault();
-        console.log("sending: addEducation ", formData);
-        addEducation(formData, history);
-      }} 
-      >
-               <div className="form-group">
+      <form
+        className='form'
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("add education submitted form:", formData);
+          addEducation(formData, history);
+        }}>
+        <div className='form-group'>
           <input
-            type="text"
-            placeholder="* School or Bootcamp history"
-            name="school"
+            type='text'
+            placeholder='* School or Bootcamp history'
+            name='school'
             required
             value={school}
-            onChange={(e)=> onChange(e)}
+            onChange={(e) => onChange(e)}
           />
-        </div> 
-        <div className="form-group">
+        </div>
+        <div className='form-group'>
           <input
-            type="text"
-            placeholder="* Degree or Certificate"
-            name="degree"
+            type='text'
+            placeholder='* Degree or Certificate'
+            name='degree'
             required
             value={degree}
-            onChange={(e)=> onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
 
-        <div className="form-group">
+        <div className='form-group'>
           <input
-            type="text"
-            placeholder="Field of Study"
-            name="fieldofstudy"
+            type='text'
+            placeholder='Field of Study'
+            name='fieldofstudy'
             value={fieldofstudy}
-            onChange={(e)=> onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
-        <div className="form-group">
+        <div className='form-group'>
           <h4>From Date</h4>
           <input
-            type="date"
-            name="from"
+            type='date'
+            name='from'
             value={from}
-            onChange={(e)=> onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
-        <div className="form-group">
+        <div className='form-group'>
           <p>
             <input
-              type="checkbox"
+              type='checkbox'
               checked={current}
-              name="current"
+              name='current'
               value={current}
-              onChange={(e)=> {
-                setFormData({ formData, current: !current });
+              onChange={(e) => {
+                setFormData({ ...formData, current: !current });
                 toggleDisabled(!toDateDisabled);
-              }} 
-            />{' '} 
+              }}
+            />{" "}
             Current School
-            </p>
+          </p>
         </div>
-        <div className="form-group">
+        <div className='form-group'>
           <h4>To Date</h4>
           <input
-            type="date"
-            name="to"
+            type='date'
+            name='to'
             value={to}
-            onChange={(e)=> onChange(e)}
-            disabled={current}  
+            onChange={(e) => onChange(e)}
+            disabled={current}
           />
         </div>
-        <div className="form-group">
+        <div className='form-group'>
           <textarea
-            name="description"
-            cols="30"
-            rows="5"
-            placeholder="Program Description"
+            name='description'
+            cols='30'
+            rows='5'
+            placeholder='Program Description'
             value={description}
-            onChange={(e)=> onChange(e)}
-          ></textarea>
+            onChange={(e) => onChange(e)}></textarea>
         </div>
-        <input
-          type="submit"
-          className="btn btn-primary my-1"
-          onChange={(e)=> onChange(e)}
-        />
-        <Link className="btn btn-light my-1" to="/dashboard">
+        <input type='submit' 
+          onChange={(e) => onChange(e)} className='btn btn-primary my-1' />
+        <Link className='btn btn-light my-1' to='/dashboard'>
           Go Back
         </Link>
       </form>
@@ -132,4 +127,4 @@ AddEducation.propTypes = {
   addEducation: Proptypes.func.isRequired
 };
 
-export default connect(null, { addEducation})(AddEducation);
+export default connect(null, { addEducation })(AddEducation);
