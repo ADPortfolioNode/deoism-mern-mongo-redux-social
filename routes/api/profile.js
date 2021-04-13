@@ -227,6 +227,7 @@ router.put('/experience',
 
             res.json(profile);
         } catch (err) { 
+            console.error(err);d
             res.status(500).send('Server Error' );
         }
     });

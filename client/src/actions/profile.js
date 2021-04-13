@@ -87,12 +87,8 @@ export const addExperience = (formData, history) => async (dispatch) => {
     dispatch(setAlert("Experience Added", "success"));
 
     history.push("/dashboard");
-  } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-    }
+  } catch (err) { 
+console.error(err);
 
     dispatch({
       type: PROFILE_ERROR,
@@ -103,29 +99,29 @@ export const addExperience = (formData, history) => async (dispatch) => {
 //add education
 
 export const addEducation = (formData, history) => async (dispatch) => {
-  console.log(" add education-", formData);
+  console.log(' add education-', formData);
   try {
     const config = {
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       }
     };
-    console.log("axios Education receiving:", formData);
+    console.log('axios Education receiving:', formData);
 
-    const res = await axios.put("/api/profile/education", formData, config);
+    const res = await axios.put('/api/profile/education', formData, config);
 
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data
     });
 
-    dispatch(setAlert("Education Added", "success"));
+    dispatch(setAlert('Education Added', 'success'));
 
-    history.push("/dashboard");
+    history.push('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
     }
 
     dispatch({
@@ -159,19 +155,23 @@ export const deleteExperience = (id) => async (dispatch) => {
 
 export const deleteEducation = (id) => async (dispatch) => {
   try {
+
     const res = await axios.delete(`api/profile/education/${id}`);
 
+console.log("deleteEducation return", res.data);
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data
     });
 
     dispatch(setAlert("Education Deleted", "success"));
-  } catch (err) {
+  } catch (err) { 
+     console.error(err)
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
+  
   }
 };
 
