@@ -45,9 +45,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           <div className="form-group">
             <input
               type="text"
-              placeholder="Name"
+              placeholder="*Name"
               name="name"
               value={name}
+              required
               onChange={(e) => onChange(e)}
             />
           </div>
@@ -57,6 +58,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               placeholder="Email Address"
               name="email"
               value={email}
+              required
               onChange={(e) => onChange(e)}
             />
             <small className="form-text">

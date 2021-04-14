@@ -44,9 +44,10 @@ export const getProfiles = () => async (dispatch) => {
       payload: res.data
     });
   } catch (err) {
+    console.error(err);
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      
     });
   }
 };
@@ -151,8 +152,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
 };
 //add education
 
-export const addEducation = (formData, history) => async (dispatch) => {
-  console.log(" add education-", formData);
+export const addEducation = (formData, history) => async (dispatch) => { 
   try {
     const config = {
       headers: {
@@ -222,11 +222,11 @@ export const deleteEducation = (id) => async (dispatch) => {
 
 //delete account & profile
 
-export const deleteAccount = (id) => async (dispatch) => {
+export const deleteAccount = () => async (dispatch) => {
   if (window.confirm("Are you Sure? This cannot be undone.")) {
     try {
       // eslint-disable-next-line
-      const res = await axios.delete(`api/profile`);
+      await axios.delete(`api/profile`);
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });

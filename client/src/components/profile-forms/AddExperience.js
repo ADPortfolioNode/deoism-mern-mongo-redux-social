@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Proptypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link , withRouter } from "react-router-dom";
 import { addExperience } from "../../actions/profile";
 
 const AddExperience = ({ addExperience, history }) => {
@@ -132,4 +132,4 @@ AddExperience.propTypes = {
   addExperience: Proptypes.func.isRequired,
 };
 
-export default connect(null, { addExperience })(AddExperience);
+export default connect(null, { addExperience })(withRouter(AddExperience));

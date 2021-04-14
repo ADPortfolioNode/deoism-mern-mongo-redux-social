@@ -15,3 +15,4 @@ export const  GET_REPOS = 'GET_REPOS';
 export const  CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
 export const  PROFILE_CREATED = 'PROFILE_CREATED';
+export const   DELETE_ACCOUNT = 'DELETE_ACCOUNT'; 
