@@ -7,6 +7,7 @@ import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
 import AddExperience from './components/profile-forms/AddExperience';
 import AddEducation from './components/profile-forms/AddEducation';
+import Profile from './components/profile/Profile';
 import Profiles from './components/profiles/Profiles';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
@@ -45,6 +46,8 @@ useEffect(()=> {
             <PrivateRoute exact path="/dashboard" component={ Dashboard } />
             <PrivateRoute exact path="/create-profile" component={ CreateProfile } />
             <PrivateRoute exact path="/edit-profile" component={ EditProfile } />
+            <PrivateRoute exact path="/profile/:id" 
+            component={ Profile } />
             <PrivateRoute exact path="/add-experience" component={ AddExperience } />
             
             <PrivateRoute exact path="/add-education" component={ AddEducation } />
