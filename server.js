@@ -10,7 +10,7 @@ connectDB();
 
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send('API Running:5000'));
+app.get('/', (req, res) => res.send('DeoisM-API Running:5000'));
 
 //ROUTES
 
@@ -22,4 +22,4 @@ app.use('/api/posts', require('./routes/api/posts'));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Ahoy maytee-Thar shee blows on port ${PORT}`));

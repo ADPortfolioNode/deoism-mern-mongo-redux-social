@@ -3,48 +3,51 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Spinner from "../layout/spinner";
-import { getProfileById } from "../../actions/profile";
+import { getProfileById } from "../../actions/profile"; 
 
-const Profile = ({
+const Profile = ({ 
   getProfileById,
-  profile: { profile, loading },
+  profile: {profile, loading },
   auth,
   match
 }) => {
   useEffect(() => {
-    getProfileById(match.params.id);
-  }, [getProfileById]);
+        getProfileById(match.params.id);
+  }, [getProfileById,  match.params.id]); 
 
+  console.log("profile loaded: ",profile); 
+  getProfileById(match.params.id);
   return (
     <Fragment>
-      {profile === null || loading ? (
-        <Spinner />
-      ) : (
-        <Fragment>
-          {profile}
-          <Link to='/profiles' className='btn btn-light'>
-            Back to Profiles
+      {profile === null || loading ? <Spinner />:<Fragment>
+          <Link to="/profiles" className="btn btn-light">
+           View All Profiles
           </Link>
-          {auth.isAuthenticated &&
-            auth.loading === false &&
-            auth.user._id === profile.user._id && (
+          
+ 
               <Link to='/edit-profile' className='btn btn-dark'>
-                Edit Profile
-              </Link>
-            )}
-        </Fragment>
-      )}
+                click to edit 
+              </Link> 
+
+              
+          </Fragment>
+      }
+
+ 
+  
     </Fragment>
   );
 };
 
-Profile.propTypes = {
+Profile.propTypes = { 
+ 
   getProfileById: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
+  profile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state, profile) => ({
+const mapStateToProps = (state) => ({
+  user: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   auth: state.auth
 });
