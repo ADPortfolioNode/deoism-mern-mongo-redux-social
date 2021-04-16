@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Spinner from "../layout/spinner";
 import DashboardActions from "./DashboardActions";
 import Experience from "./Experience";
-import Education from "./Education"; 
+import Education from "./Education";
 import setAuthToken from "../../utils/setAuthToken";
 
 import { getCurrentProfile, deleteAccount } from "../../actions/profile";
@@ -37,7 +37,15 @@ const Dashboard = ({
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
           <div className='my-2'>
-            <button className='btn btn-danger' onClick={() => deleteAccount()} label="delete" >Delete {user && user.name}</button>
+            <Link to='/edit-profile' className='btn btn-success'>
+              Edit {user && user.name} Profile
+            </Link>
+            <button
+              className='btn btn-danger'
+              onClick={() => deleteAccount()}
+              label='delete'>
+              Delete {user && user.name} Profile
+            </button>
           </div>
         </Fragment>
       ) : (

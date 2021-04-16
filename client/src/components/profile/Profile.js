@@ -3,42 +3,49 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Spinner from "../layout/spinner";
+import ProfileTop from './ProfileTop';
 import { getProfileById } from "../../actions/profile";
 
-const Profile = ({
+
+const Profile = ({ 
   getProfileById,
   profile: { profile, loading },
   auth,
   match
 }) => {
-  useEffect(() => {
-    getProfileById(match.params.id);
+  useEffect(() => { 
+    getProfileById(match.params.id); 
   }, [getProfileById, match.params.id]);
 
   return (
     <Fragment>
-      {profile === null || loading ? (
+      { profile === null || loading ? (
         <Spinner />
       ) : (
         <Fragment>
-          <Link to='/profiles' className='btn btn-light'>
-            View All Profiles
+          <Link className="btn btn-light" to="/profiles" >
+            View All Profiles  
           </Link>
- 
-        </Fragment>
+         
+
+<div className="profile-grid my-1"> 
+<ProfileTop profile={profile}/>
+</div>
+          </Fragment>
       )}
+
     </Fragment>
   );
 };
 
 Profile.propTypes = {
   getProfileById: PropTypes.func.isRequired,
-  profile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  profile: PropTypes.func.isRequired,
+  profile: state.profile,
   auth: state.auth
 });
 
