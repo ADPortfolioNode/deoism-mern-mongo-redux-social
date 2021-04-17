@@ -35,8 +35,8 @@ export const getCurrentProfile = () => async (dispatch) => {
 ///get all users profiles
 export const getProfiles = () => async (dispatch) => {
   dispatch({
-    type:CLEAR_PROFILE
-  })
+    type: CLEAR_PROFILE
+  });
   try {
     const res = await axios.get("/api/profile");
     dispatch({
@@ -46,15 +46,13 @@ export const getProfiles = () => async (dispatch) => {
   } catch (err) {
     console.error(err);
     dispatch({
-      type: PROFILE_ERROR,
-      
+      type: PROFILE_ERROR
     });
   }
 };
 
 /////get profile by id
-export const getProfileById = userId => async (dispatch) => {
- 
+export const getProfileById = (userId) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/profile/user/${userId}`);
     dispatch({
@@ -62,16 +60,16 @@ export const getProfileById = userId => async (dispatch) => {
       payload: res.data
     });
   } catch (err) {
+    console.error(err.data);
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: err.data }
     });
   }
 };
 
 /////get githubrepos
-export const getGithubRepos = username => async (dispatch) => {
- 
+export const getGithubRepos = (username) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/profile/github/${username}`);
     dispatch({
@@ -152,7 +150,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
 };
 //add education
 
-export const addEducation = (formData, history) => async (dispatch) => { 
+export const addEducation = (formData, history) => async (dispatch) => {
   try {
     const config = {
       headers: {
