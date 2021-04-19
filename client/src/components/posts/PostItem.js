@@ -25,16 +25,16 @@ const PostItem = ({
       </p>
       <button
         type='button'
-        onClick={(e) => addLike(_id)}
+        onClick={() => addLike(_id)}
         className='btn btn-light'>
-        <i className='fas fa-thumbs-up'></i>{" "}
+        <i className='fas fa-thumbs-up'> </i>{" "}
         {likes.length > 0 && <span>{likes.length}</span>}
-      </button>
+      </button>{" "}
       <button
         type='button'
-        onClick={(e) => removeLike(_id)}
+        onClick={() => removeLike(_id)}
         className='btn btn-light'>
-        <i className='fas fa-thumbs-down'></i>
+        <i className='fas fa-thumbs-down'></i>{" "}
       </button>{" "}
       <Link to={`/post/${_id}`} className='btn btn-primary'>
         Discussion
@@ -56,6 +56,7 @@ PostItem.propTypes = {
   auth: PropTypes.object.isRequired
 };
 const mapStateToProps = (state) => ({
-  auth: state.auth
+  auth: state.auth,
+  likes: state.likes
 });
 export default connect(mapStateToProps, { addLike, removeLike })(PostItem);

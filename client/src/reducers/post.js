@@ -29,7 +29,7 @@ export default function (state = initalState, action) {
       return {
         ...state,
         posts: state.posts.map((post) =>
-          post._id === payload.id ? { ...post, likes: payload.likes } : post
+          post._id === payload._id ? { ...post, likes: payload.likes } : post
         ),
         loading: false
       };
