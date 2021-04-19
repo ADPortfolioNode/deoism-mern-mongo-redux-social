@@ -38,13 +38,13 @@ const Dashboard = ({
           <Education education={profile.education} />
           <div className='my-2'>
             <Link to='/edit-profile' className='btn btn-success'>
-              Edit {user && user.name} Profile
+              Edit {user && user.name} Account Info
             </Link>
             <button
               className='btn btn-danger'
               onClick={() => deleteAccount()}
               label='delete'>
-              Delete {user && user.name} Profile
+              Delete {user && user.name} Account Info
             </button>
           </div>
         </Fragment>
