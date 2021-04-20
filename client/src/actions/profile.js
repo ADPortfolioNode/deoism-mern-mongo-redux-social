@@ -35,8 +35,13 @@ export const getCurrentProfile = () => async (dispatch) => {
 ///get all users profiles
 export const getProfiles = () => async (dispatch) => {
   dispatch({
+<<<<<<< HEAD
     type:CLEAR_PROFILE
   })
+=======
+    type: CLEAR_PROFILE
+  });
+>>>>>>> portfolio
   try {
     const res = await axios.get("/api/profile");
     dispatch({
@@ -44,16 +49,26 @@ export const getProfiles = () => async (dispatch) => {
       payload: res.data
     });
   } catch (err) {
+<<<<<<< HEAD
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
+=======
+    console.error(err);
+    dispatch({
+      type: PROFILE_ERROR
+>>>>>>> portfolio
     });
   }
 };
 
 /////get profile by id
+<<<<<<< HEAD
 export const getProfileById = userId => async (dispatch) => {
   
+=======
+export const getProfileById = (userId) => async (dispatch) => {
+>>>>>>> portfolio
   try {
     const res = await axios.get(`/api/profile/user/${userId}`);
     dispatch({
@@ -61,16 +76,27 @@ export const getProfileById = userId => async (dispatch) => {
       payload: res.data
     });
   } catch (err) {
+<<<<<<< HEAD
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
+=======
+    console.error(err.data);
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.data }
+>>>>>>> portfolio
     });
   }
 };
 
 /////get githubrepos
+<<<<<<< HEAD
 export const getGithubRepos = username => async (dispatch) => {
  
+=======
+export const getGithubRepos = (username) => async (dispatch) => {
+>>>>>>> portfolio
   try {
     const res = await axios.get(`/api/profile/github/${username}`);
     dispatch({
@@ -152,7 +178,6 @@ export const addExperience = (formData, history) => async (dispatch) => {
 //add education
 
 export const addEducation = (formData, history) => async (dispatch) => {
-  console.log(" add education-", formData);
   try {
     const config = {
       headers: {
@@ -222,11 +247,11 @@ export const deleteEducation = (id) => async (dispatch) => {
 
 //delete account & profile
 
-export const deleteAccount = (id) => async (dispatch) => {
+export const deleteAccount = () => async (dispatch) => {
   if (window.confirm("Are you Sure? This cannot be undone.")) {
     try {
       // eslint-disable-next-line
-      const res = await axios.delete(`api/profile`);
+      await axios.delete(`api/profile`);
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });

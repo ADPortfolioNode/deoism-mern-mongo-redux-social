@@ -5,7 +5,8 @@ import {
   GET_PROFILE,
   GET_REPOS,
   PROFILE_ERROR,
-  UPDATE_PROFILE
+  UPDATE_PROFILE,
+  UPDATE_LIKES
 } from "../actions/types";
 
 const initialState = {
@@ -19,8 +20,7 @@ const initialState = {
 export default function (state = initialState, action) {
   const { type, payload } = action;
 
-
-console.log("reducers  payload: " ,type ,payload);
+  console.log("reducers  payload: ", type, payload);
 
   switch (type) {
     case GET_PROFILE:
@@ -29,6 +29,7 @@ console.log("reducers  payload: " ,type ,payload);
         ...state,
         profile: payload,
         loading: false
+<<<<<<< HEAD
       }
     case  GET_PROFILES:
       return {
@@ -36,6 +37,15 @@ console.log("reducers  payload: " ,type ,payload);
         profiles: payload,
         loading:false
       }
+=======
+      };
+    case GET_PROFILES:
+      return {
+        ...state,
+        profiles: payload,
+        loading: false
+      };
+>>>>>>> portfolio
     case PROFILE_ERROR:
       return {
         ...state,
@@ -43,7 +53,15 @@ console.log("reducers  payload: " ,type ,payload);
         loading: false,
         profile: null,
         repos: []
-      }; 
+      };
+    case UPDATE_LIKES:
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post._id === payload.id ? { ...post, likes: payload.likes } : post
+        ),
+        loading: false
+      };
 
     case CLEAR_PROFILE:
       return {
@@ -53,12 +71,21 @@ console.log("reducers  payload: " ,type ,payload);
         profile: null,
         repos: []
       };
+<<<<<<< HEAD
 case GET_REPOS:
   return{
     ...state,
     repos: payload,
     loading: false
   }
+=======
+    case GET_REPOS:
+      return {
+        ...state,
+        repos: payload,
+        loading: false
+      };
+>>>>>>> portfolio
     default:
       return state;
   }

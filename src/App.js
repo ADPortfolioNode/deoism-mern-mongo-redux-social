@@ -8,8 +8,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+          This came with the building, My work is here -> <code>src/App.js</code>
+          We are HotLinked for convenience - just save the file        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
