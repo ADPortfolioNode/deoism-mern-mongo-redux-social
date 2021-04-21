@@ -5,7 +5,8 @@ import {
   GET_PROFILE,
   GET_REPOS,
   PROFILE_ERROR,
-  UPDATE_PROFILE
+  UPDATE_PROFILE,
+  UPDATE_LIKES
 } from "../actions/types";
 
 const initialState = {
