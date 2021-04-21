@@ -13,23 +13,9 @@ const ProfileItem = ({
 }) => {
   return (
     <div className='profile bg-light'>
-<<<<<<< HEAD
-      <img src={avatar} alt='' className='round-img' />
-=======
       <img src={avatar} alt='{name}' className='round-img' />
->>>>>>> portfolio
       <div>
-        <h2>
-          {
-            <span>
-<<<<<<< HEAD
-          test
-=======
-          {name }
->>>>>>> portfolio
-            </span>
-          }
-        </h2>
+        <h2>{<span>{name}</span>}</h2>
         <p>
           {status}
           {company && <span> at {company}</span>}

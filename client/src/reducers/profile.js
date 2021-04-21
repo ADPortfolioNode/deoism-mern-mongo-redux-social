@@ -36,10 +36,6 @@ export default function (state = initialState, action) {
         profiles: payload,
         loading: false
       };
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of b710ab3 (Revert "clean up and adding likes (not complete)")
     case PROFILE_ERROR:
       return {
         ...state,
@@ -48,8 +44,6 @@ export default function (state = initialState, action) {
         profile: null,
         repos: []
       };
-<<<<<<< HEAD
-=======
     case UPDATE_LIKES:
       return {
         ...state,
@@ -58,7 +52,6 @@ export default function (state = initialState, action) {
         ),
         loading: false
       };
->>>>>>> parent of b710ab3 (Revert "clean up and adding likes (not complete)")
 
     case CLEAR_PROFILE:
       return {
@@ -68,20 +61,12 @@ export default function (state = initialState, action) {
         profile: null,
         repos: []
       };
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of b710ab3 (Revert "clean up and adding likes (not complete)")
     case GET_REPOS:
       return {
         ...state,
         repos: payload,
         loading: false
       };
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of b710ab3 (Revert "clean up and adding likes (not complete)")
     default:
       return state;
   }
