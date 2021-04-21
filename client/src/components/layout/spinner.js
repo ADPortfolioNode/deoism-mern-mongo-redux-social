@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { Fragment } from "react";
 
-import spinner from "../../img/3DYinyang.gif";
+import spinner from "../../img/spinner.gif";
 export default () => {
   return (
     <Fragment>

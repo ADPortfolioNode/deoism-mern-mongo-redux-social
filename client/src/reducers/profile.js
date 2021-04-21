@@ -5,8 +5,7 @@ import {
   GET_PROFILE,
   GET_REPOS,
   PROFILE_ERROR,
-  UPDATE_PROFILE,
-  UPDATE_LIKES
+  UPDATE_PROFILE
 } from "../actions/types";
 
 const initialState = {
@@ -20,7 +19,8 @@ const initialState = {
 export default function (state = initialState, action) {
   const { type, payload } = action;
 
-  console.log("reducers  payload: ", type, payload);
+
+console.log("reducers  payload: " ,type ,payload);
 
   switch (type) {
     case GET_PROFILE:
@@ -29,13 +29,13 @@ export default function (state = initialState, action) {
         ...state,
         profile: payload,
         loading: false
-      };
-    case GET_PROFILES:
+      }
+    case  GET_PROFILES:
       return {
         ...state,
         profiles: payload,
-        loading: false
-      };
+        loading:false
+      }
     case PROFILE_ERROR:
       return {
         ...state,
@@ -43,15 +43,7 @@ export default function (state = initialState, action) {
         loading: false,
         profile: null,
         repos: []
-      };
-    case UPDATE_LIKES:
-      return {
-        ...state,
-        posts: state.posts.map((post) =>
-          post._id === payload.id ? { ...post, likes: payload.likes } : post
-        ),
-        loading: false
-      };
+      }; 
 
     case CLEAR_PROFILE:
       return {
@@ -61,12 +53,12 @@ export default function (state = initialState, action) {
         profile: null,
         repos: []
       };
-    case GET_REPOS:
-      return {
-        ...state,
-        repos: payload,
-        loading: false
-      };
+case GET_REPOS:
+  return{
+    ...state,
+    repos: payload,
+    loading: false
+  }
     default:
       return state;
   }
