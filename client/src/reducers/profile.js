@@ -19,8 +19,7 @@ const initialState = {
 export default function (state = initialState, action) {
   const { type, payload } = action;
 
-
-console.log("reducers  payload: " ,type ,payload);
+  console.log("reducers  payload: ", type, payload);
 
   switch (type) {
     case GET_PROFILE:
@@ -29,13 +28,14 @@ console.log("reducers  payload: " ,type ,payload);
         ...state,
         profile: payload,
         loading: false
-      }
-    case  GET_PROFILES:
+      };
+    case GET_PROFILES:
       return {
         ...state,
         profiles: payload,
-        loading:false
-      }
+        loading: false
+      };
+
     case PROFILE_ERROR:
       return {
         ...state,
@@ -43,7 +43,7 @@ console.log("reducers  payload: " ,type ,payload);
         loading: false,
         profile: null,
         repos: []
-      }; 
+      };
 
     case CLEAR_PROFILE:
       return {
@@ -53,12 +53,14 @@ console.log("reducers  payload: " ,type ,payload);
         profile: null,
         repos: []
       };
-case GET_REPOS:
-  return{
-    ...state,
-    repos: payload,
-    loading: false
-  }
+
+    case GET_REPOS:
+      return {
+        ...state,
+        repos: payload,
+        loading: false
+      };
+
     default:
       return state;
   }
