@@ -2,13 +2,15 @@ import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Spinner from "../layout/spinner";
+import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import { getProfileById } from "../../actions/profile";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
 import ProfileGithub from "./ProfileGithub";
+
+////
 
 const Profile = ({
   getProfileById,

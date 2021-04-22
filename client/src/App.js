@@ -11,7 +11,6 @@ import Profile from "./components/profile/Profile";
 import Profiles from "./components/profiles/Profiles";
 import Posts from "./components/posts/Posts";
 import Login from "./components/auth/Login";
-import Alert from "./components/layout/Alert";
 import Dashboard from "./components/dashboard/Dashboard";
 import PrivateRoute from "./components/routing/PrivateRoute";
 //redux stuff
@@ -68,8 +67,6 @@ const App = () => {
 
               <PrivateRoute exact path='/posts' component={Posts} />
             </Switch>
-
-            <Alert />
           </section>
         </Fragment>
       </Router>

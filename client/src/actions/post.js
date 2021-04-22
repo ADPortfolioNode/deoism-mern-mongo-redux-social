@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setAlert } from "./alert";
 import { GET_POSTS, POST_ERROR, UPDATE_LIKES } from "./types";
 
 //get post
@@ -34,6 +35,7 @@ export const addLike = (_id) => async (dispatch) => {
       type: POST_ERROR,
       payload: { err }
     });
+    setAlert(err);
   }
 };
 

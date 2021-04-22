@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import Alert from "./Alert";
 import { logout } from "../../actions/auth";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
@@ -54,6 +55,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
       )}
+      <Alert />
     </nav>
   );
 };
