@@ -2,7 +2,6 @@ import { React, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
 import Alert from "./Alert";
 import { logout } from "../../actions/auth";
 
@@ -45,18 +44,20 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   return (
-    <nav className='navbar bg-dark top'>
-      <h1>
-        <Link to='/'>
-          <i className='fas fa-code'>DeoisM</i>
-        </Link>
-      </h1>
+    <Fragment>
+      <nav className='navbar bg-dark top'>
+        <h1>
+          <Link to='/'>
+            <i className='fas fa-code'>DeoisM</i>
+          </Link>
+        </h1>
 
-      {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-      )}
+        {!loading && (
+          <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+        )}
+      </nav>
       <Alert />
-    </nav>
+    </Fragment>
   );
 };
 Navbar.propTypes = {

@@ -5,8 +5,7 @@ import {
   GET_PROFILE,
   GET_REPOS,
   PROFILE_ERROR,
-  UPDATE_PROFILE,
-  UPDATE_LIKES
+  UPDATE_PROFILE
 } from "../actions/types";
 
 const initialState = {
@@ -43,14 +42,6 @@ export default function (state = initialState, action) {
         loading: false,
         profile: null,
         repos: []
-      };
-    case UPDATE_LIKES:
-      return {
-        ...state,
-        posts: state.posts.map((post) =>
-          post._id === payload.id ? { ...post, likes: payload.likes } : post
-        ),
-        loading: false
       };
 
     case CLEAR_PROFILE:

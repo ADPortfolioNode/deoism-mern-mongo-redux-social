@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import { getPosts } from "../../actions/post";
+import PostForm from "./PostForm";
 import PostItem from "./PostItem";
 
 const Posts = ({ getPosts, posts: { posts, loading } }) => {
@@ -18,7 +19,7 @@ const Posts = ({ getPosts, posts: { posts, loading } }) => {
       <p className='lead'>
         <i className='fas fa-user'></i>Welcome to the community
       </p>
-      {/* {post form} */}
+      <PostForm />
       <div className='my-1'>
         {!posts ? (
           <Spinner />
