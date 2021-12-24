@@ -24,7 +24,9 @@ const Posts = ({ getPosts, posts: { posts, loading } }) => {
         {!posts ? (
           <Spinner />
         ) : (
-          posts.map((post) => <PostItem key={post._id} post={post} />)
+          posts.map((post) => (
+            <PostItem key={post._id} post={post} showActions={true} />
+          ))
         )}
       </div>
     </Fragment>

@@ -25,15 +25,15 @@ export const getPosts = () => async (dispatch) => {
       payload: { msg: err.response.statusText, status: err.response.status }
     });
 
-    dispatch(setAlert("Post Failed", "danger"));
+    dispatch(setAlert("Post retrieval Failed", "danger"));
   }
 };
 
 //get post
 
-export const getPost = (id) => async (dispatch) => {
+export const getPost = (_id) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/posts/${id}`);
+    const res = await axios.get(`/api/post/$_id}`);
 
     dispatch({
       type: GET_POST,
@@ -45,7 +45,7 @@ export const getPost = (id) => async (dispatch) => {
       payload: { err }
     });
 
-    dispatch(setAlert("Post request Failed", "danger"));
+    dispatch(setAlert("Get Post request Failed", "danger"));
   }
 };
 
