@@ -7,8 +7,8 @@ import PostItem from "../posts/PostItem";
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
-    getPost(match.params.id);
-  }, [getPost, match.params.id]);
+    getPost(match.params._id);
+  }, [getPost, match.params._id]);
 
   return loading && !post ? (
     <Spinner />
